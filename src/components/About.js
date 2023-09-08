@@ -50,7 +50,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className=" flex gap-x-8 items-center  ">
+            <div className=" flex gap-x-8 items-center mt-6 ">
               <button className="btn btn-lg">Contact me</button>
               <a href="#" className="text-gradient btn-link p-3">
                 My Portfolio
