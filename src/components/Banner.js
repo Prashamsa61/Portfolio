@@ -16,7 +16,7 @@ const Banner = () => {
           className="flex flex-col gap-y-8 lg:flex-row lg:items-center 
         lg:gap-x-11 "
         >
-          <div className="flex-1 text-center text-black font-secondary lg:text-left">
+          <div className="flex-1 text-center text-white font-secondary lg:text-left">
             <motion.h1
               variants={fadeIn("up", 0.3)}
               initial="hidden"
@@ -35,7 +35,7 @@ const Banner = () => {
               className="mb-6 text-[40px] lg:text-[50px] font-secondary
             font-semibold uppercase leading-[1]"
             >
-              <span className=" text-black mr-4">I am a </span>
+              <span className=" text-white mr-4">I am a </span>
               <TypeAnimation
                 sequence={[
                   "Student",
