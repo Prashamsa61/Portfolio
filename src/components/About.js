@@ -33,12 +33,13 @@ const About = () => {
           >
             <h2 className="h2 text-accent ">About Me</h2>
             <h3 className="h3 mb-4">
-              jnjnnjnjnj jjojnjn ijknoijo joijoj jnjojj jnojnj
+              I'm a student with a keen interest in data science and currently
+              exploring front-end development 
             </h3>
             <p className="mb-6">
-              asajd ajfa idjfa ikjdai adjfka iadf aj dfjiajidandnfj
-              jdfkjansdf,mas judfaer jjuhfan dsf,m h2kfnan ajdfkjna
-              knjdnafdklnfa njdkfanefma dlkfjnnajdksl fa dsf jdnasnf,ms
+              I'm a Sunway College student passionate about data science and
+              currently exploring front-end development. I'm eager to expand my
+              skills in both fields to create innovative solutions.
             </p>
             <div className="flex">
               <div>
