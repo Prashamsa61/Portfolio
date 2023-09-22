@@ -34,7 +34,7 @@ const About = () => {
             <h2 className="h2 text-accent ">About Me</h2>
             <h3 className="h3 mb-4">
               I'm a student with a keen interest in data science and currently
-              exploring front-end development 
+              exploring front-end development
             </h3>
             <p className="mb-6">
               I'm a Sunway College student passionate about data science and
