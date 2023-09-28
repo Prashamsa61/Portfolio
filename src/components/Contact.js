@@ -36,12 +36,12 @@ const Contact = () => {
   const { formData, handleChange, handleSubmit } = useForm(
     initialValues,
     (formData) => {
-      // Handle form submission here
+      
       console.log(formData);
     }
   );
 
-  // Define a list of contact options
+  
   const contactOptions = [
     {
       title: "Email",

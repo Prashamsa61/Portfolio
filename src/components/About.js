@@ -10,7 +10,7 @@ const About = () => {
     threshold: 0.5,
   });
 
-  // Use useEffect to trigger counting animation when inView becomes true
+  // useEffect to trigger counting animation when inView becomes true
   useEffect(() => {
     if (inView) {
       // Custom code to execute when the component is in view

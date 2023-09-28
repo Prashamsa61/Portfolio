@@ -5,7 +5,7 @@ import React from "react";
 const PortfolioButton = () => {
   const handlePortfolioClick = (e) => {
     e.preventDefault();
-    window.location.href = "/about"; // Replace with your desired URL
+    window.location.href = "/about"; 
   };
 
   return (

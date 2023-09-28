@@ -3,11 +3,11 @@ import React from "react";
 const ContactLink = () => {
   const handleContactClick = (e) => {
     e.preventDefault();
-    window.location.href = "/contact";
+    window.location.href = "#contact";
   };
   return (
     <a
-      href="/contact"
+      href="#contact"
       className="btn btn-lg flex items-center mx-7"
       onClick={handleContactClick}
     >
