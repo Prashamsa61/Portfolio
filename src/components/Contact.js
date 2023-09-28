@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const { name, email, message } = formData;
+// a custom hook for form handling
+function useForm(initialValues, onSubmit) {
+  const [formData, setFormData] = useState(initialValues);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,17 +13,49 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(formData); // For demonstration purposes
-
-
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    onSubmit(formData);
+    // Optionally,  clear the form after submission
+    setFormData(initialValues);
   };
 
+  return {
+    formData,
+    handleChange,
+    handleSubmit,
+  };
+}
+
+const Contact = () => {
+  const initialValues = {
+    name: "",
+    email: "",
+    message: "",
+  };
+
+  // Use  of the custom hook for form handling
+  const { formData, handleChange, handleSubmit } = useForm(
+    initialValues,
+    (formData) => {
+      // Handle form submission here
+      console.log(formData);
+    }
+  );
+
+  // Define a list of contact options
+  const contactOptions = [
+    {
+      title: "Email",
+      content: "contact@example.com",
+    },
+    {
+      title: "Phone",
+      content: "+1 (123) 456-7890",
+    },
+    {
+      title: "Office Address",
+      content: "123 Main Street, City, Country",
+    },
+  ];
   return (
     <section className="py-16 lg:py-32" id="contact">
       <div className="container mx-auto">
@@ -50,6 +77,16 @@ const Contact = () => {
               Let's work
               <br /> together!
             </h2>
+
+            {/* Render the list of contact options */}
+            <ul>
+              {contactOptions.map((option, index) => (
+                <li key={index}>
+                  <strong>{option.title}: </strong>
+                  {option.content}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           <motion.form
@@ -66,7 +103,7 @@ const Contact = () => {
               type="text"
               placeholder="Your name"
               name="name"
-              value={name}
+              value={formData.name}
               onChange={handleChange}
               required
             />
@@ -76,7 +113,7 @@ const Contact = () => {
               type="text"
               placeholder="Your email"
               name="email"
-              value={email}
+              value={formData.email}
               onChange={handleChange}
               required
             />
@@ -86,7 +123,7 @@ const Contact = () => {
               mb-6"
               placeholder="Your message"
               name="message"
-              value={message}
+              value={formData.message}
               onChange={handleChange}
               required
             ></textarea>

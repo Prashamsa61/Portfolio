@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -9,8 +9,38 @@ const About = () => {
   const [ref, inView] = useInView({
     threshold: 0.5,
   });
+
+  // Use useEffect to trigger counting animation when inView becomes true
+  useEffect(() => {
+    if (inView) {
+      // Custom code to execute when the component is in view
+      const countUpElement = document.querySelector(".count-up-element"); 
+
+      // Check if the element exists before starting the animation
+      if (countUpElement) {
+        const startValue = 0;
+        const endValue = 13;
+        const duration = 20; // Duration in seconds
+
+        const countUpOptions = {
+          start: startValue,
+          end: endValue,
+          duration: duration,
+          useEasing: true,
+          useGrouping: true,
+        };
+
+        const countUp = new CountUp(countUpElement, endValue, countUpOptions);
+        if (!countUp.error) {
+          countUp.start();
+        } else {
+          console.error(countUp.error);
+        }
+      }
+    }
+  }, [inView]);
   return (
-    <section className="section" id="about" ref={ref}>
+    <section className="min-h-[95vh] lg:min-h-[90vh]" id="about" ref={ref}>
       <div className="container mx-auto">
         <div
           className="flex flex-col gap-y-10 lg:flex-row lg:items-center
@@ -57,7 +87,7 @@ const About = () => {
                 to="contact"
                 smooth
                 duration={500}
-                className="btn btn-lg center-text"
+                className="btn btn-lg flex items-center mx-7"
               >
                 Contact me
               </Link>

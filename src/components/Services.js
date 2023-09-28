@@ -1,30 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 
 const services = [
   {
-    name: "UI & UX Design",
+    name: "Project Ideas",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    link: "Learn More",
+      "As a student, I'm brimming with innovative project ideas. I believe in turning creative concepts into reality.",
+    link: "Explore Ideas",
   },
   {
-    name: "UI & UX Design",
+    name: "Learning Journey",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    link: "Learn More",
+      "My journey as a student is filled with learning and growth. I'm constantly acquiring new skills and knowledge.",
+    link: "Discover Learning",
   },
   {
-    name: "UI & UX Design",
+    name: "Collaboration",
     description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    link: "Learn More",
+      "I'm open to collaboration on exciting projects. Let's work together to bring our ideas to life!",
+    link: "Join Hands",
   },
 ];
 
 const Services = () => {
+  const [showAdditionalContent, setShowAdditionalContent] = useState(false);
+
   return (
     <section className="section" id="services">
       <div className="container mx-auto">
@@ -38,12 +40,17 @@ const Services = () => {
             className="flex-1 bg:services lg:bg-bottom
            bg-no-repeat mix-blend-lighten mb-12 lg:mb-0"
           >
-            <h2 className="h2 text-accent mb-6">what i do</h2>
+            <h2 className="h2 text-accent mb-6">What I Do</h2>
             <h3 className="h3 max-w-[455px] mb-16">
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts.
+              As a student with a passion for innovation, I have exciting
+              project ideas and a strong desire to learn and collaborate.
             </h3>
-            <button className="btn btn-sm">See my work</button>
+            <button
+              className="btn btn-sm"
+              onClick={() => setShowAdditionalContent(!showAdditionalContent)}
+            >
+              {showAdditionalContent ? "Hide Projects" : "Explore Projects"}
+            </button>
           </motion.div>
           {/* services */}
           <div className="flex-1">
@@ -70,15 +77,19 @@ const Services = () => {
                       </p>
                     </div>
                     <div className="flex felx-col flex-1 items-end ">
-                      <a
-                        href="#"
-                        className="btn w-9 h-9 mb-[42px] justify-center items-center"
-                      >
-                        <BsArrowUpRight />
-                      </a>
-                      <a href="#" className="text-gradient text-sm">
-                        {link}
-                      </a>
+                      {showAdditionalContent && (
+                        <>
+                          <a
+                            href="#"
+                            className="btn w-10 h-10 mb-[30px] justify-center items-center"
+                          >
+                            <BsArrowUpRight className="w-full h-1/2" />
+                          </a>
+                          <a href="#" className="text-gradient text-sm">
+                            {link}
+                          </a>
+                        </>
+                      )}
                     </div>
                   </motion.div>
                 );

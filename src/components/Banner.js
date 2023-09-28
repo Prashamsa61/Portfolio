@@ -4,13 +4,13 @@ import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import Contact from "./Contact"; // Import the Contact component
-import { Link } from "react-scroll";
+import PortfolioButton from "./PortfolioButton"; // Import the PortfolioButton component
+import ContactLink from "./ContactLink"; // Import the ContactLink component
 
 const Banner = () => {
   return (
     <section
-      className="min-h-[85vh] lg:min-h-[78vh] flex items-center"
+      className="min-h-[90vh] lg:min-h-[90vh] flex items-center"
       id="home"
     >
       <div className="container mx-auto">
@@ -67,18 +67,14 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="flex max-w-max gap-x-6 items-center mb-14 mx-auto lg:mx-0"
             >
-              {/* Use Link from react-scroll */}
-              <Link
-                to="contact"
-                smooth
-                duration={500}
-                className="btn btn-lg center-text "
-              >
-                Contact me
-              </Link>
-              <a href="#" className="text-gradient btn-link p-3">
-                My Portfolio
-              </a>
+              <div className="banner">
+               
+                <ContactLink />
+              </div>
+              <div className="banner">
+              
+                <PortfolioButton />
+              </div>
             </motion.div>
             <motion.div
               variants={fadeIn("up", 0.4)}
@@ -87,10 +83,10 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="flex text-[-20px] gap-x-6 max-w max mx-auto lg:mx-0"
             >
-              <a href="#">
+              <a href="https://github.com/Prashamsa61">
                 <FaGithub />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/prashamsa-rijal-/">
                 <FaLinkedin />
               </a>
               <a href="#">
@@ -104,7 +100,7 @@ const Banner = () => {
             whileInView={"show"}
             className="hidden lg:flex flex-1 max-w-[320px] lg:max-w-[450px] mx-auto"
           >
-            <img src={Image} alt="" />
+            <img src={Image} alt="profile_picture" />
           </motion.div>
         </div>
       </div>
